@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dark.T.C - Digital Services</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#050914;
+    color:white;
+}
+
+/* 5 SECOND INTRO */
+#intro{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:#02050b;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    animation:hideIntro 5s forwards;
+}
+
+.intro-box h1{
+    font-size:55px;
+    letter-spacing:6px;
+    color:white;
+}
+
+.intro-box h1 span{
+    color:#00aaff;
+}
+
+.intro-box p{
+    color:#7192ad;
+    letter-spacing:3px;
+    margin-top:12px;
+}
+
+.logo-circle{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    margin:auto auto 25px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#07182a;
+    border:2px solid #00aaff;
+    box-shadow:0 0 50px #008cff;
+    font-weight:bold;
+    font-size:25px;
+}
+
+@keyframes hideIntro{
+    0%,85%{
+        opacity:1;
+        visibility:visible;
+    }
+    100%{
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+/* NAVBAR */
+
+nav{
+    background:#07101d;
+    padding:18px;
+    border-bottom:1px solid #17344d;
+    text-align:center;
+}
+
+nav h2{
+    letter-spacing:3px;
+}
+
+nav span{
+    color:#00aaff;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:70px 20px;
+    background:radial-gradient(circle,#07345b,#050914 60%);
+}
+
+.hero h1{
+    font-size:55px;
+    letter-spacing:5px;
+}
+
+.hero h1 span{
+    color:#00aaff;
+}
+
+.hero p{
+    color:#9eb1c6;
+    margin:20px auto;
+    max-width:650px;
+}
+
+/* SERVICES */
+
+.container{
+    width:92%;
+    max-width:1100px;
+    margin:auto;
+}
+
+section{
+    padding:55px 0;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.title h2{
+    font-size:32px;
+}
+
+.title p{
+    color:#8297ad;
+    margin-top:8px;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.service{
+    background:#0b1421;
+    border:1px solid #19354d;
+    border-radius:18px;
+    padding:25px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.service:hover{
+    transform:translateY(-5px);
+    border-color:#00aaff;
+    box-shadow:0 10px 35px #008cff22;
+}
+
+.icon{
+    font-size:38px;
+}
+
+.service h3{
+    margin:12px 0 7px;
+}
+
+.service p{
+    color:#8ea3b8;
+    font-size:14px;
+}
+
+/* DETAILS */
+
+#details{
+    display:none;
+}
+
+.back{
+    background:none;
+    border:none;
+    color:#00aaff;
+    font-size:16px;
+    cursor:pointer;
+    margin-bottom:20px;
+}
+
+.packages{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.package{
+    background:#0b1421;
+    border:1px solid #19354d;
+    border-radius:14px;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.package strong{
+    color:#00b7ff;
+}
+
+/* PAYMENT */
+
+.payment{
+    margin-top:25px;
+    background:#081525;
+    border:1px solid #1b4d70;
+    border-radius:18px;
+    padding:25px;
+}
+
+.payment h3{
+    margin-bottom:10px;
+}
+
+.number{
+    font-size:27px;
+    font-weight:bold;
+    color:#00b7ff;
+    margin:10px 0;
+}
+
+.methods span{
+    display:inline-block;
+    padding:8px 12px;
+    border:1px solid #29465d;
+    border-radius:8px;
+    margin:4px;
+    color:#b9cce0;
+}
+
+input,select{
+    width:100%;
+    padding:14px;
+    margin-top:12px;
+    border-radius:9px;
+    border:1px solid #29445c;
+    background:#050b13;
+    color:white;
+}
+
+.pay-btn{
+    width:100%;
+    padding:14px;
+    margin-top:12px;
+    border:none;
+    border-radius:9px;
+    background:#008ee8;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.success{
+    display:none;
+    margin-top:15px;
+    padding:14px;
+    border-radius:9px;
+    background:#082617;
+    border:1px solid #25a65b;
+    color:#6df0a0;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid #17344d;
+    color:#71869b;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .services{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .packages{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+}
+
+@media(max-width:450px){
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .intro-box h1{
+        font-size:42px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+
+<div id="intro">
+
+<div class="intro-box">
+
+<div class="logo-circle">
+D.T.C
+</div>
+
+<h1>DARK<span>.T.C</span></h1>
+
+<p>DIGITAL SERVICE PANEL</p>
+
+</div>
+
+</div>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+<h2>DARK<span>.T.C</span></h2>
+
+</nav>
+
+
+<!-- HERO -->
+
+<div class="hero">
+
+<div class="container">
+
+<h1>DARK<span>.T.C</span></h1>
+
+<p>
+Professional Digital Services, Social Media Support,
+Account Recovery, e-TIN, Documents and Monetization Setup.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="title">
+
+<h2>Our Services</h2>
+
+<p>Select a service to view details and packages</p>
+
+</div>
+
+
+<div class="services">
+
+
+<div class="service" onclick="showService('facebook')">
+
+<div class="icon">📣</div>
+
+<h3>Facebook & Page Boost</h3>
+
+<p>Facebook and Page Boost Packages</p>
+
+</div>
+
+
+<div class="service" onclick="showService('youtube')">
+
+<div class="icon">▶️</div>
+
+<h3>YouTube Boost</h3>
+
+<p>YouTube service packages</p>
+
+</div>
+
+
+<div class="service" onclick="showService('tiktok')">
+
+<div class="icon">🎵</div>
+
+<h3>TikTok Boost</h3>
+
+<p>TikTok support service</p>
+
+</div>
+
+
+<div class="service" onclick="showService('etin')">
+
+<div class="icon">📄</div>
+
+<h3>e-TIN</h3>
+
+<p>e-TIN Certificate and Setup</p>
+
+</div>
+
+
+<div class="service" onclick="showService('recovery')">
+
+<div class="icon">🔐</div>
+
+<h3>Account Recovery</h3>
+
+<p>Authorized account recovery support</p>
+
+</div>
+
+
+<div class="service" onclick="showService('monetization')">
+
+<div class="icon">💰</div>
+
+<h3>Monetization Setup</h3>
+
+<p>Monetization setup service</p>
+
+</div>
+
+
+<div class="service" onclick="showService('documents')">
+
+<div class="icon">🗂️</div>
+
+<h3>Documents</h3>
+
+<p>Document service</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- DETAILS -->
+
+<section id="details">
+
+<div class="container">
+
+<button class="back" onclick="backToServices()">
+← Back to Services
+</button>
+
+
+<div class="title">
+
+<h2 id="serviceTitle"></h2>
+
+<p id="serviceDescription"></p>
+
+</div>
+
+
+<div id="packages" class="packages"></div>
+
+
+<!-- PAYMENT -->
+
+<div class="payment">
+
+<h3>Payment Method</h3>
+
+<p style="color:#8ea3b8;">
+Nagad / bKash / Rocket — Send Money
+</p>
+
+<div class="number">
+01354646657
+</div>
+
+
+<div class="methods">
+
+<span>Nagad</span>
+<span>bKash</span>
+<span>Rocket</span>
+
+</div>
+
+
+<p style="color:#8ea3b8;font-size:14px;margin-top:12px;">
+Payment করার পর আপনার Transaction ID দিন।
+</p>
+
+
+<input
+type="text"
+id="transaction"
+placeholder="Enter Transaction ID"
+>
+
+
+<select id="paymentMethod">
+
+<option>Nagad</option>
+
+<option>bKash</option>
+
+<option>Rocket</option>
+
+</select>
+
+
+<button class="pay-btn" onclick="submitPayment()">
+
+Submit Payment
+
+</button>
+
+
+<div id="success" class="success">
+
+✓ Payment information submitted successfully.
+<br>
+Your payment is pending verification.
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 DARK.T.C — Digital Service Panel
+
+</footer>
+
+
+<script>
+
+/* SERVICE DATA */
+
+const services = {
+
+facebook:{
+
+title:"Facebook & Page Boost",
+
+description:"Facebook Boost Packages",
+
+packages:[
+
+["24 Hours","৳1,950"],
+
+["48 Hours","৳2,566"],
+
+["72 Hours","৳3,150"],
+
+["90 Hours","৳3,870"]
+
+]
+
+},
+
+
+youtube:{
+
+title:"YouTube Boost",
+
+description:"YouTube Packages",
+
+packages:[
+
+["24 Hours","৳1,800"],
+
+["48 Hours","৳2,000"],
+
+["900 Hours","৳4,700"]
+
+]
+
+},
+
+
+tiktok:{
+
+title:"TikTok Boost",
+
+description:"TikTok Boost Service",
+
+packages:[
+
+["TikTok Boost","Contact for Price"]
+
+]
+
+},
+
+
+etin:{
+
+title:"e-TIN",
+
+description:"e-TIN Services",
+
+packages:[
+
+["e-TIN Certificate","৳600"],
+
+["e-TIN Setup","৳1,000"]
+
+]
+
+},
+
+
+recovery:{
+
+title:"Account Recovery",
+
+description:"Authorized Account Recovery",
+
+packages:[
+
+["Account Recovery","৳2,350"]
+
+]
+
+},
+
+
+monetization:{
+
+title:"Monetization Setup",
+
+description:"Monetization Setup Package",
+
+packages:[
+
+["3 Lakh Watch Time Package","৳7,000"]
+
+]
+
+},
+
+
+documents:{
+
+title:"Documents",
+
+description:"Document Service",
+
+packages:[
+
+["Documents","৳600"]
+
+]
+
+}
+
+};
+
+
+/* SHOW SERVICE */
+
+function showService(name){
+
+const data = services[name];
+
+document.getElementById("services").style.display="none";
+
+document.getElementById("details").style.display="block";
+
+document.getElementById("serviceTitle").innerText=data.title;
+
+document.getElementById("serviceDescription").innerText=data.description;
+
+
+let html="";
+
+data.packages.forEach(function(item){
+
+html += `
+
+<div class="package">
+
+<b>${item[0]}</b>
+
+<strong>${item[1]}</strong>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("packages").innerHTML=html;
+
+window.scrollTo({
+
+top:document.getElementById("details").offsetTop-60,
+
+behavior:"smooth"
+
+});
+
+}
+
+
+/* BACK */
+
+function backToServices(){
+
+document.getElementById("details").style.display="none";
+
+document.getElementById("services").style.display="block";
+
+document.getElementById("services").scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+
+/* PAYMENT */
+
+function submitPayment(){
+
+let transaction =
+document.getElementById("transaction").value.trim();
+
+if(transaction===""){
+
+alert("Please enter your Transaction ID.");
+
+return;
+
+}
+
+document.getElementById("success").style.display="block";
+
+}
+
+</script>
+
+</body>
+
+</html>
